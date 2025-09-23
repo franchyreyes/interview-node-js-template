@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entorno
+.env
+
+# Compilación
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
+
+# Temporal
+*.tmp
+tmp/

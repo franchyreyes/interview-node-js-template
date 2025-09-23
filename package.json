@@ -1,0 +1,30 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.3",
+    "puppeteer": "^24.22.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/node": "^7.28.0",
+    "@babel/preset-env": "^7.28.3",
+    "@types/node": "^14.18.63"
+  },
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
