@@ -1,7 +1,7 @@
 
 const express = require('express');
 import customerController from '../controllers/customerController'
-import { validateCustomer, handleValidation } from '../middlewares/customerValidator';
+import { validateCustomer, validateId, handleValidation } from '../middlewares/customerValidator';
 
 const router = express.Router();
 
@@ -118,6 +118,63 @@ router.get('/adults/', customerController.getCustomerAdults);
  *           type: boolean
  */
 router.post('/', validateCustomer, handleValidation, customerController.create);
+
+
+// ...existing code...
+
+/**
+ * @openapi
+ * /customers/{id}:
+ *   get:
+ *     summary: Retrieve a customer by id
+ *     tags:
+ *       - Customers
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Numeric ID of the customer to retrieve
+ *     responses:
+ *       200:
+ *         description: A single customer
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Customer'
+ *       404:
+ *         description: Customer not found
+ */
+router.get('/:id',validateId,handleValidation, customerController.getById);
+
+/**
+ * @openapi
+ * /customers/{id}:
+ *   delete:
+ *     summary: Delete a customer by id
+ *     tags:
+ *       - Customers
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Numeric ID of the customer to delete
+ *     responses:
+ *       204:
+ *         description: Deleted customer
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Customer'
+ *       404:
+ *         description: Customer not found
+ */
+router.delete('/:id', validateId, handleValidation, customerController.deleteById);
+
+
 
 
 export { router }

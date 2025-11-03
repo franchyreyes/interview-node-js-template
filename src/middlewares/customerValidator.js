@@ -1,5 +1,5 @@
 // middlewares/customerValidator.js
-import { body, validationResult } from 'express-validator';
+import { body, validationResult, param } from 'express-validator';
 import {codeStatus} from '../config/codeStatus'
 
 export const validateCustomer = [
@@ -16,6 +16,13 @@ export const validateCustomer = [
 
   body('active')
     .isBoolean().withMessage('Active debe ser booleano'),
+];
+// param is not defined
+export const validateId = [
+  param('id')
+    .exists().withMessage('Id es obligatorio')
+    .isInt().withMessage('Id debe ser numérico')
+    .toInt()
 ];
 
 export const handleValidation = (req, res, next) => {

@@ -1,6 +1,7 @@
 export const codeStatus = {
     SUCCESSFULL: 200,
     CREATED: 201,
+    DELETE_SUCCESSFULL: 204,
     NOT_FOUND: 404,
     BAD_REQUEST: 400,
     SERVER_ERROR: 500

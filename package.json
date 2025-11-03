@@ -19,10 +19,13 @@
     "@babel/core": "^7.28.4",
     "@babel/node": "^7.28.0",
     "@babel/preset-env": "^7.28.3",
-    "@types/node": "^14.18.63"
+    "@types/node": "^14.18.63",
+    "babel-jest": "^29.6.1",
+    "jest": "^29.6.1"
   },
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node"
+    "start": "nodemon ./index.js --exec babel-node",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",

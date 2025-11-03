@@ -26,7 +26,26 @@ const customerService = {
     const customer = customerDomainLogic.validateActiveCustomer(data)
 
     return await customerRepository.create(customer);
+  },
+
+  // Get a single customer by id
+  async getCustomerById(id) {
+    const customer = await customerRepository.getById(id);
+    if (!customer) {
+      throw new Error('Customer not found');
+    }
+    return customer;
+  },
+  // Delete a customer by id
+  
+  async deleteCustomerById(id) {
+    const deletedCustomer = await customerRepository.deleteById(id);
+    if (!deletedCustomer) {
+      throw new Error('Customer not found');
+    }
+    return deletedCustomer;
   }
+
 };
 
 export default customerService;

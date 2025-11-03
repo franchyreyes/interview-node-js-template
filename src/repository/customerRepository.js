@@ -12,7 +12,21 @@ const customerRepository = {
       [name, age, email, active]
     );
     return result.rows[0];
+  },
+
+  // Get a single customer by id
+  async getById(id) {
+    const result = await db.query('SELECT * FROM customer WHERE id = $1', [id]);
+    return result.rows[0] || null;
+  },
+
+  // Delete a customer by id,
+  async deleteById(id) {
+    const result = await db.query('DELETE FROM customer WHERE id = $1 RETURNING *', [id]);
+    return result.rows[0] || null;
   }
+
+
 
 };
 

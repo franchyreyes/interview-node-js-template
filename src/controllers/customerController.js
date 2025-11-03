@@ -35,6 +35,31 @@ const customerController = {
     } catch (error) {
       next(error);
     }
+  },
+
+  // get a single customer by id
+  
+  async getById(req, res, next) {
+    try {
+      const customer = await customerService.getCustomerById(req.params.id);
+      const customerDTO = mapToCustomer(customer)
+      const response = apiResponse(true,"custumer by id successfull", customerDTO)
+      res.status(codeStatus.SUCCESSFULL).json(response);
+    } catch (error) {
+      next(error);
+    }
+  },
+  
+  // delete a customer by id
+  async deleteById(req, res, next) {
+    try {
+      const deletedCustomer = await customerService.deleteCustomerById(req.params.id);
+      const customerDTO = mapToCustomer(deletedCustomer)
+      const response = apiResponse(true,"deleted custumer successfull", customerDTO)
+      res.status(codeStatus.DELETE_SUCCESSFULL).json(response);
+    } catch (error) {
+      next(error);
+    }
   }
 };
 
